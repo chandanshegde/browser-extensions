@@ -931,13 +931,11 @@ function extractDomain(url) {
 ## Storage Implementation
 
 ### Storage Persistence
-**Answer to the question:** `chrome.storage.local` IS persisted across browser close/open cycles. Data stored in `chrome.storage.local` is:
+ `chrome.storage.local` IS persisted across browser close/open cycles. Data stored in `chrome.storage.local` is:
 - Persisted across browser restarts
 - Synced to user's Google account (if signed in and sync enabled)
 - Available offline
 - Not cleared when browser closes (unlike sessionStorage)
-
-This means sessions saved with our extension will persist indefinitely until explicitly deleted by the user.
 
 ### Storage Operations
 ```javascript
@@ -1058,39 +1056,6 @@ async function safeTabOperation(operation) {
 // Usage
 await safeTabOperation(() => chrome.tabs.create({ url: tab.url }));
 ```
-
----
-
-## Testing Checklist
-
-- [ ] Load extension in Chrome
-- [ ] Verify all tabs appear in list
-- [ ] Test select/deselect functionality
-- [ ] Save session with custom name
-- [ ] Save session with auto-generated name
-- [ ] Verify session appears in saved list
-- [ ] Open session in new window
-- [ ] Open session in current window
-- [ ] Delete session
-- [ ] Export single session
-- [ ] Export multiple sessions
-- [ ] Export all sessions
-- [ ] Import sessions from file
-- [ ] Verify imported sessions appear
-- [ ] Test auto-save on window close
-- [ ] Verify auto-saved sessions have correct name
-- [ ] Test with pinned tabs
-- [ ] Test with many tabs (100+)
-
----
-
-## Chrome Web Store Publishing (Future)
-
-1. Create ZIP file of extension
-2. Create developer account
-3. Upload ZIP to Chrome Web Store
-4. Provide screenshots and description
-5. Submit for review
 
 ---
 

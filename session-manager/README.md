@@ -163,9 +163,7 @@ session-manager/
 ├── import.html          # Import page UI
 ├── import.js            # Import functionality
 ├── icons/               # Extension icons
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
+│   ├── icon.png
 ├── DESIGN.md            # Detailed design document
 └── README.md            # This file
 ```

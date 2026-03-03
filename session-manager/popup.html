@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Manager</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Session Manager</h1>
+      <div class="header-actions">
+        <button id="btn-import" class="btn btn-secondary">Import</button>
+        <button id="btn-refresh" class="btn btn-icon" title="Refresh">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M13.451 5.609l-.579-.939-1.068.812-.076.094c-.335.415-.927 1.341-1.124 2.876l-.021.165.033.163.071.345c.262 1.212.393 2.124.393 2.735 0 .462-.061.802-.184 1.02a.976.976 0 0 1-.561.364c-.262.066-.596.099-1.002.099-.575 0-1.223-.099-1.944-.297a7.326 7.326 0 0 1-1.875-.858 7.43 7.43 0 0 1-1.384-1.168.102.102 0 0 0-.14.142c.293.492.656.912 1.088 1.259.433.346.948.619 1.546.817.597.199 1.273.298 2.027.298.702 0 1.287-.106 1.756-.319a2.62 2.62 0 0 0 1.164-.924c.29-.395.434-.885.434-1.471 0-.656-.14-1.234-.42-1.735-.28-.5-.686-.947-1.217-1.342a4.58 4.58 0 0 1-.314-.305l-.457-.368-.363-.731-.729-.359-1.05-.005-.358.725c.26.192.509.404.748.636.239.232.453.488.643.767.19.28.337.585.44.916.104.33.156.691.156 1.082 0 .813-.206 1.458-.618 1.936-.412.477-.992.716-1.741.716-.558 0-1.178-.146-1.86-.44-.682-.293-1.31-.708-1.883-1.245l-.097-.091-.728.392c.48.535 1.057.967 1.732 1.297.675.33 1.44.495 2.296.495.888 0 1.605-.142 2.152-.425.547-.284.914-.651 1.1-1.103.187-.452.28-.93.28-1.436 0-.74-.148-1.39-.444-1.951a3.322 3.322 0 0 0-1.218-1.305 5.144 5.144 0 0 0-.393-.304l.005-1.05.359-.73.731-.363.368-.457c.194-.243.386-.482.577-.718z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="tabs-section">
+      <div class="section-header">
+        <h2>Currently Open Tabs <span id="tab-count" class="badge">0</span></h2>
+        <div class="selection-controls">
+          <button id="btn-select-all" class="btn btn-small">Select All</button>
+          <button id="btn-deselect-all" class="btn btn-small btn-outline">Deselect All</button>
+        </div>
+      </div>
+      <div id="tabs-list" class="tabs-container"></div>
+    </section>
+
+    <section class="actions-section">
+      <div class="selected-info">
+        <span id="selected-count">0</span> tabs selected
+      </div>
+      <div class="action-buttons">
+        <button id="btn-save-selected" class="btn btn-primary">Save Selected</button>
+        <button id="btn-open-new" class="btn btn-secondary">Open in New Window</button>
+        <button id="btn-open-current" class="btn btn-secondary">Open in Current</button>
+      </div>
+    </section>
+
+    <section class="sessions-section">
+      <div class="section-header">
+        <h2>Saved Sessions</h2>
+        <button id="btn-export-all" class="btn btn-small btn-outline">Export All</button>
+      </div>
+      <div id="sessions-list" class="sessions-container"></div>
+    </section>
+
+    <div id="message" class="message hidden"></div>
+  </div>
+
+  <div id="save-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Save Session</h3>
+      <div class="form-group">
+        <label for="session-name">Session Name</label>
+        <input type="text" id="session-name" placeholder="Leave empty for auto-generated name">
+        <p class="hint">Example: Work Session, Research, etc.</p>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-cancel-save" class="btn btn-outline">Cancel</button>
+        <button id="btn-confirm-save" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
